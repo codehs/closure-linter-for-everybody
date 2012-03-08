@@ -25,18 +25,25 @@ from closure_linter import errors
 FLAGS = flags.FLAGS
 flags.DEFINE_boolean('jsdoc', True,
                      'Whether to report errors for missing JsDoc.')
+flags.DEFINE_list(
+    'ignore_errors',
+    [],
+    'List of error codes (integers without leading zeros) to ignore.')
 
 
 def ShouldReportError(error):
   """Whether the given error should be reported.
   
   Returns:
-    True for all errors except missing documentation errors.  For these,
+    True for all errors except missing documentation errors and
+    errors from --ignore_errors flag.
+    For missing documentation errors,
     it returns the value of the jsdoc flag.
   """
-  return FLAGS.jsdoc or error not in (
+  return (FLAGS.jsdoc or error not in (
       errors.MISSING_PARAMETER_DOCUMENTATION,
       errors.MISSING_RETURN_DOCUMENTATION,
       errors.MISSING_MEMBER_DOCUMENTATION,
       errors.MISSING_PRIVATE,
-      errors.MISSING_JSDOC_TAG_THIS)
+      errors.MISSING_JSDOC_TAG_THIS)) and str(error) not in FLAGS.ignore_errors
+
