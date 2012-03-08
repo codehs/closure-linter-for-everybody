@@ -24,3 +24,17 @@ Python package name is `closure_linter`. To uninstall:
 ```
 sudo pip uninstall closure_linter
 ```
+
+
+### This fork special features
+
+#### Errors ignoring
+
+To get rid of linter errors you don't want to see you can use option --ignore_errors:
+
+```
+gjslint --nobeep --strict --ignore_errors=7,214,220,227 my-ugly-file.js
+```
+
+--ignore_errors option value is a comma-separated list
+of the Closure Linter integer error numbers (i.e. 110, not E0110).
