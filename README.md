@@ -1,6 +1,8 @@
-Fork of Google Closure Linter (https://developers.google.com/closure/utilities/)
-Major forking purpose - add some behaviour that Googlers refuse to add
-(for example, ignoring particular linter errors).
+Fork of Google Closure Linter (https://developers.google.com/closure/utilities/).
+Major forking purpose - add some behaviour that Googlers refuse to add.
+For example, ignoring particular linter errors -
+https://groups.google.com/forum/?fromgroups#!topic/closure-linter-discuss/CdPdKjJ4pNs or
+http://code.google.com/p/closure-linter/issues/detail?id=16.
 
 This is Python package, so to install you have to use some Python package installation tool.
 If you prefer `easy_install`:
